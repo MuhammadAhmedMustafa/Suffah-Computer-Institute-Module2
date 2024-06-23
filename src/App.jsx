@@ -20,8 +20,8 @@ const App = () =>{
     <React.Fragment>
     <h1>First Gallery</h1>
     <Gallery />
-    <h1>Second Gallery</h1>
-    <Gallery />
+    {/* <h1>Second Gallery</h1>
+    <Gallery /> */}
     <h1>Todo List</h1>
     <TodoList />
     </React.Fragment>
