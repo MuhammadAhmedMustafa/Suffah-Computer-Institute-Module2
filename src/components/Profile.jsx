@@ -19,22 +19,23 @@
 //   }
 import {getImageUrl} from "./../utils/utils"
 export default function Profile() {
-  // const perObj = {
-  //   name: 'Katsuko Saruhashi',
-  //   imageId: 'YfeOqp2'
-  // }
+  const perObj = {
+    name: 'Katsuko Saruhashi',
+    imageId: 'YfeOqp2',
+    size:200
+  }
   return (
     <Card>
-      {/* <Avatar
-        size={100}
-        // person={perObj}
-        person={ {
-          name: 'Katsuko Saruhashi',
-          imageId: 'YfeOqp2'
-        }}
-      /> */}
-
       <Avatar
+        size={perObj.size}
+         person={perObj}
+        // person={ {
+        //   name: 'Katsuko Saruhashi',
+        //   imageId: 'YfeOqp2'
+        // }}
+      />
+
+      {/* <Avatar
         size={100}
         person={{ 
           name: 'Katsuko Saruhashi', 
@@ -54,7 +55,7 @@ export default function Profile() {
           name: 'Lin Lanying',
           imageId: '1bX5QH6'
         }}
-      />
+      /> */}
     </Card>
   );
 }

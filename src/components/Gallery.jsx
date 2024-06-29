@@ -2,9 +2,10 @@ import Profile from './Profile.jsx'
 
 
 export default function Gallery() {
-    return (
+const heading= 'Amazing scientists';
+  return (
       <section>
-        <h1>Amazing scientists</h1>
+        <h1>{heading}</h1>
         <Profile />
       </section>
     );
