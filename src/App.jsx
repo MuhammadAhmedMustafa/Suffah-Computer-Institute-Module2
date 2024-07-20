@@ -1,5 +1,5 @@
 import React, { useState }  from 'react'
-
+import {meals} from "./data/data"
 // const App = () =>{
 //   return(
 //    <>
@@ -83,33 +83,82 @@ import React, { useState }  from 'react'
 
 
 
-export default function App (){
-  const [todos,setTodos] = useState([]);
-  const [todo,setTodo] = useState();
-  const addTodo= () =>{
-    let tempArr = [...todos];
-    tempArr.push(todo)
-    setTodos(tempArr);
-  }
-  return(
-    <>
-    <input type="text" name="todo" id="_todo" 
-    onChange={(e)=>{
-      setTodo(e.target.value)
-    }} />
+// export default function App (){
+//   const [todos,setTodos] = useState([]);
+//   const [todo,setTodo] = useState();
+//   const addTodo= () =>{
+//     let tempArr = [...todos];
+//     tempArr.push(todo)
+//     setTodos(tempArr);
+//   }
+//   return(
+//     <>
+//     <input type="text" name="todo" id="_todo" 
+//     onChange={(e)=>{
+//       setTodo(e.target.value)
+//     }} />
 
 
     
-    <button onClick={()=>{addTodo()}}>Add todo</button>
-    <ul>
-      {
-        todos.map(item => <li>{item}</li>)
-      }
-    </ul>
-    </>
-  )
+//     <button onClick={()=>{addTodo()}}>Add todo</button>
+//     <ul>
+//       {
+//         todos.map(item => <li>{item}</li>)
+//       }
+//     </ul>
+//     </>
+//   )
+// }
+
+export default function App(){
+  const mealsList = meals;
+  const [recipeName,setRecipeName] = useState();
+  const [recipeDetails,setRecipeDetails] =useState([]);
+  const [flag , setFlag] = useState(false);
+  console.log(mealsList);
+ 
+  const searchRecipe = ()=>{
+    const recipeDetail = mealsList.filter(item =>
+      item.name === recipeName
+    );
+    recipeDetail.length <=0 ? setFlag(true) : setFlag(false) 
+    setRecipeDetails(recipeDetail)
+    console.log(recipeDetail);
+  }
+ return(
+ <>
+    <input type="text" name="todo" id="_todo" 
+    
+    onChange={(e)=>{
+      const val= e.target.value.toLocaleLowerCase();
+      setRecipeName(val)
+    }} />    
+
+
+
+    <button onClick={()=>{searchRecipe()}}>Search Recipe</button>
+    {
+ recipeDetails.length > 0 ?
+<>
+<h3>Recipe Details</h3>
+  <ul>
+   <li>{recipeDetails[0].name}</li>
+   <li>{recipeDetails[0].recipe}</li>
+</ul>
+</>
+:null
+}
+{
+ flag && 
+ <p> Recipe not found </p> 
 }
 
+
+
+
+  </>
+  )
+}
 
 
 
